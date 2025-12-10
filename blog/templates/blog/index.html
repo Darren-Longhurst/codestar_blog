@@ -38,9 +38,12 @@
             </div>
         </div>
     </div>
-    {% if is_paginated %}
+   {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREVIOUS </a></li>
+            {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
             {% endif %}
@@ -51,4 +54,6 @@
 
 <!-- index.html content ends here -->
 {% endblock %}
-{% block copyright %}Copyright 2025 Darren Longhurst{% endblock %}
+{% block copyright %}
+Copyright 2025 Darren Longhurst
+{% endblock %}
